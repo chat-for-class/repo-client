@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.* ?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="2.5" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="event.JoinEvent">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="166.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="274.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
+   <children>
+      <HBox prefHeight="26.0" prefWidth="524.0" style="-fx-background-color: gray;">
+         <children>
+            <Label text="계정 정보 입력">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" text="아이디" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" text="비밀번호" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" text="비밀번호 확인" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idField" maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <PasswordField fx:id="pwField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <PasswordField fx:id="pwCheckField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnSpan="2" GridPane.rowIndex="5">
+         <children>
+            <Label text="학교 메일 인증">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ComboBox fx:id="schollist" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.rowIndex="6">
+      	<items>
+      		<FXCollections fx:factory="observableArrayList">
+            	<String fx:value="가천대학교" />
+      		</FXCollections>
+      	</items>
+      	<value>
+        	<String fx:value="선택" />
+    	</value>
+      </ComboBox>
+      <TextField fx:id="mailId" GridPane.rowIndex="7" />
+      <TextField fx:id="mailAddr" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <Button fx:id="sendMaillNumberBtn" alignment="CENTER" mnemonicParsing="false" prefWidth="120.0" text="인증번호 발송" textAlignment="CENTER" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+      <TextField fx:id="number" maxWidth="-Infinity" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="8">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Button fx:id="checkNumberBtn" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="확인" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+      <Button fx:id="JoinBtn" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="가   입" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+      <Label fx:id="checkLable" text="인증 미상태" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+         <children>
+            <Label fx:id="errorField" alignment="CENTER" />
+         </children>
+      </HBox>
+      <Label fx:id="TimeCheckLabel" alignment="CENTER" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+      <Label fx:id="checkPasswordLabel" alignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <children>
+            <Label fx:id="checkIDLabel" alignment="CENTER" >
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</GridPane>
