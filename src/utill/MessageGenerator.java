@@ -28,4 +28,7 @@ public class MessageGenerator {
 	public String createjoinMessage(String id, String password, String mailAddress){
 		return "05/Data:id="+id+";"+"password="+password+";"+"mailAddress="+mailAddress;
 	}
+	public String classUpdate(String msg){
+		return "06/Data:msg=" + msg;
+	}
 }

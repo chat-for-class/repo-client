@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"  fx:controller="event.TimeTableEvent">
+  <tabs>
+    <Tab style="-fx-border-width: 150;" text="시간표">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="250.0">
+               <children>
+                  <Label prefHeight="29.0" prefWidth="250.0" text="Label" />
+                  <ListView fx:id="listView" layoutY="29.0" prefHeight="283.0" prefWidth="250.0" />
+                  <Button fx:id="addSubject" layoutX="91.0" layoutY="346.0" mnemonicParsing="false" text="과목 추가" />
+                  <Button fx:id="modify" layoutX="210.0" layoutY="3.0" mnemonicParsing="false" text="정정" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="일정 캘린더">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="3.0" prefHeight="19.0" prefWidth="215.0" text="Label" />
+                  <GridPane layoutX="1.0" layoutY="29.0" prefHeight="265.0" prefWidth="250.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+
+</TabPane>

@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServerConnector {
 
@@ -17,12 +19,15 @@ public class ServerConnector {
 	private static ServerConnector instance;
 	private String hostIp = null;
 	private int port = -1;
-
+	private static String subject;
 	private ServerConnector(String hostIp, int port) {
 		this.hostIp = hostIp;
 		this.port = port;
 	}
-
+	public static String  getList(){
+		
+		return subject;
+	}
 	public static ServerConnector getInstance(String hostIp, int port) {
 		if(instance == null){
 			instance = new ServerConnector(hostIp, port);
@@ -67,9 +72,13 @@ public class ServerConnector {
 		String message = null;
 		
 		try {
+			
 			while(message == null){
 				message = br.readLine();
+				System.out.println(message);
 			}
+			subject = message;
+			System.out.println(subject);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

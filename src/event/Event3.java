@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import Data.DataList;
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,11 +28,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import test.Connector.ServerConnector;
 import test.config.data.RememberMeData;
 import utill.MessageGenerator;
 
-public class Event implements Initializable{
+
+public class Event3 implements Initializable{
 
 	@FXML private Text scenetitle;
 	@FXML private TextField idBox;
@@ -79,13 +84,16 @@ public class Event implements Initializable{
 				ObjectOutputStream oos = null;
 				String userName = idBox.getText();
 				String password = pwBox.getText();
-
 				try {
-					ServerConnector.getInstance().write(MessageGenerator.getInstance().createLoginMessage(userName, password));
-					String flag = ServerConnector.getInstance().readString(); 
-//					ServerConnector.getInstance().resetbuffer();
-					File file = new File("./data/checkdata.dat");
 					
+					ServerConnector.getInstance().write(MessageGenerator.getInstance().createLoginMessage(userName, password));
+					String msg = ServerConnector.getInstance().readString(); 
+				
+					int mode = msg.indexOf("^");
+					String flag = msg.substring(0,mode);
+					
+	//					ServerConnector.getInstance().resetbuffer();
+					File file = new File("./data/checkdata.dat");
 					if(flag.equals("true")){
 						checkloginText.setFill(Color.BLUE);
 						checkloginText.setText("login success");
@@ -93,12 +101,11 @@ public class Event implements Initializable{
 						boolean chkflag = checkBox.isSelected();
 						
 						if(chkflag){
-							
 							if(!file.exists()){
 								file.createNewFile();
 							}
-							
 							RememberMeData rmd = new RememberMeData();
+							
 							rmd.setChecked(chkflag);
 							rmd.setId(userName);
 							rmd.setPassword(password);
@@ -108,11 +115,33 @@ public class Event implements Initializable{
 							
 							oos.writeObject(rmd);
 							oos.flush();
+							
+						
 						}else{
 							if(file.exists()){
 								file.delete();
 							}
 						}
+						//¼öÁ¤
+						ArrayList<String> list = new ArrayList<>();
+						int a= msg.indexOf("^");
+						msg = msg.substring(a+1);
+						System.out.println(msg);
+						for(int i=0; i<msg.length(); i++){
+							int oper = msg.indexOf("*");
+							if(oper>-1){		
+								String imsimsg = msg.substring(0,oper);
+								msg = msg.substring(oper+1);
+															
+								list.add(imsimsg);
+							}
+						}
+						DataList.setList(list);
+						Parent	root = FXMLLoader.load(getClass().getResource("../TimeTableUi.fxml"));
+						
+						Scene scene = new Scene(root,250,400);
+						
+						Main.StageInstance.setScene(scene);
 						
 					}else{
 						checkloginText.setFill(Color.RED);

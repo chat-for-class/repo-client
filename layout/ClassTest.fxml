@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: darkgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="event.TimeTableEvent">
+   <children>
+      <Button id="addSubject" fx:id="addSubject" layoutX="218.0" layoutY="475.0" mnemonicParsing="false" text="과목추가" />
+      <Button id="delete" fx:id="delete" layoutX="455.0" layoutY="11.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" style="-fx-background-color: darkgray;" text="삭제" wrapText="true">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Label id="label" fx:id="label" layoutY="11.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: darkgray;" text="총 6과목 18학점" textAlignment="CENTER" textFill="#0d0d0d" />
+      <ScrollPane layoutY="50.0" prefHeight="400.0" prefWidth="500.0">
+         <content>
+            <ListView  fx:id="listView" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: pink;" />
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>
